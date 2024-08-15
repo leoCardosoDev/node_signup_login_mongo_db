@@ -1,99 +1,84 @@
+---
+
 # Signup Login Application
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/leocardoso94/signup-login/blob/main/LICENSE)
-[![Node.js CI](https://github.com/leocardoso94/signup-login/actions/workflows/node.js.yml/badge.svg)](https://github.com/leocardoso94/signup-login/actions/workflows/node.js.yml)
-[![codecov](https://codecov.io/gh/leocardoso94/signup-login/branch/main/graph/badge.svg?token=xxxx)](https://codecov.io/gh/leocardoso94/signup-login)
-
-## Índice
-
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Começando](#começando)
-  - [Pré-requisitos](#pré-requisitos)
-  - [Instalação](#instalação)
-- [Uso](#uso)
-- [Testes](#testes)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuindo](#contribuindo)
-- [Licença](#licença)
-- [Contato](#contato)
-
-## Sobre o Projeto
+**Sobre o Projeto**
 
 Este projeto é uma aplicação para gerenciar o processo de registro (SignUp) e autenticação (Login) de usuários. Ele fornece endpoints para criar contas, autenticar usuários e realizar validações.
 
-### Funcionalidades
+**Funcionalidades**
 
 - Registro de novos usuários
 - Autenticação de usuários existentes
 - Validação de dados de entrada
 - Cobertura de testes abrangente
 
-## Começando
+**Começando**
 
 Estas instruções ajudarão você a configurar e executar o projeto localmente para desenvolvimento e testes.
 
-### Pré-requisitos
+**Pré-requisitos**
 
-- [Node.js](https://nodejs.org/en/download/) (v16 ou superior)
-- [Docker](https://www.docker.com/get-started) (opcional, para ambiente de desenvolvimento e testes)
+- Node.js (v16 ou superior)
+- Docker (opcional, para ambiente de desenvolvimento e testes)
 
-### Instalação
+**Instalação**
 
-1. Clone o repositório
+1. Clone o repositório:
 
-   ```bash
-   git clone https://github.com/leocardoso94/signup-login.git
-   cd signup-login
-   ```
+```
+git clone https://github.com/leoCardosoDev/node_signup_login_mongo_db.git
+cd node_signup_login_mongo_db
+```
 
-2. Instale as dependências do projeto
+2. Instale as dependências do projeto:
 
-   ```bash
-   npm install
-   ```
+```
+npm install
+```
 
-3. Crie um arquivo `.env` e configure as variáveis de ambiente necessárias
+3. Crie um arquivo `.env` e configure as variáveis de ambiente necessárias:
 
-   ```bash
-   cp .env.example .env
-   # Edite o arquivo .env de acordo com as suas necessidades
-   ```
+```
+cp .env.example .env
+# Edite o arquivo .env de acordo com as suas necessidades
+```
 
-## Uso
+**Uso**
 
 Para iniciar a aplicação, execute:
 
-```bash
+```
 npm run start
 ```
 
 Para iniciar o servidor em modo de desenvolvimento com hot-reload, execute:
 
-```bash
+```
 npm run debug
 ```
 
-A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
+A aplicação estará disponível em `http://localhost:3000`.
 
-## Testes
+**Testes**
 
 Para executar os testes unitários e de integração, use:
 
-```bash
+```
 npm run test
 ```
 
 Para executar os testes com cobertura de código, use:
 
-```bash
+```
 npm run test:ci
 ```
 
 O relatório de cobertura será gerado na pasta `coverage`.
 
-## Estrutura do Projeto
+**Estrutura do Projeto**
 
-```bash
+```
 ├── dist                 # Arquivos compilados pelo TypeScript
 ├── src                  # Código-fonte do projeto
 │   ├── application      # Lógica de negócios e casos de uso
@@ -109,25 +94,111 @@ O relatório de cobertura será gerado na pasta `coverage`.
 │   └── presentation     # Testes para a camada de apresentação
 ```
 
-## Contribuindo
+**Fluxo de Trabalho com Git Flow**
 
-Contribuições são bem-vindas! Por favor, siga os seguintes passos para contribuir:
+Este projeto segue o modelo Git Flow. Aqui estão os comandos básicos para trabalhar com o Git Flow:
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Faça o commit das suas alterações (`git commit -m 'Adiciona nova feature'`)
-4. Faça o push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+1. **Inicializar Git Flow no projeto**
 
-## Licença
-
-Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
-
-## Contato
-
-Leonardo Cardoso - [@leocardoso94](https://github.com/leocardoso94) - leocardoso94@example.com
-
-Link do Projeto: [https://github.com/leocardoso94/signup-login](https://github.com/leocardoso94/signup-login)
+```
+git flow init
 ```
 
-Este arquivo `README.md` fornece uma visão geral clara do projeto, incluindo instruções de instalação, uso e contribuição. Sinta-se à vontade para ajustar as informações específicas de acordo com as necessidades do seu projeto.
+2. **Iniciar uma nova feature**
+
+```
+git flow feature start <nome-da-feature>
+```
+
+3. **Finalizar uma feature**
+
+```
+git flow feature finish <nome-da-feature>
+```
+
+4. **Iniciar uma release**
+
+```
+git flow release start <versão>
+```
+
+5. **Finalizar uma release**
+
+```
+git flow release finish <versão>
+```
+
+6. **Iniciar um hotfix**
+
+```
+git flow hotfix start <nome-do-hotfix>
+```
+
+7. **Finalizar um hotfix**
+
+```
+git flow hotfix finish <nome-do-hotfix>
+```
+
+8. **Iniciar uma bugfix**
+
+```
+git flow bugfix start <nome-do-bugfix>
+```
+
+9. **Finalizar uma bugfix**
+
+```
+git flow bugfix finish <nome-do-bugfix>
+```
+
+**Commits Convencionais (Conventional Commits)**
+
+Este projeto utiliza o padrão de *Conventional Commits* para manter a consistência nos históricos de commits e facilitar a geração de logs de mudanças (changelogs) e versionamento automático. A seguir estão as regras definidas no arquivo `commitlint.config.js`:
+
+```javascript
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'header-max-length': [2, 'always', 100],
+    'body-max-line-length': [2, 'always', 72],
+    'footer-max-line-length': [2, 'always', 72],
+    'type-enum': [
+      2,
+      'always',
+      [
+        'feat',     // Adição de uma nova funcionalidade
+        'fix',      // Correção de um bug
+        'docs',     // Alterações na documentação
+        'style',    // Alterações que não afetam o significado do código (espaços, formatação, etc.)
+        'refactor', // Mudança de código que não é uma correção de bug nem uma nova funcionalidade
+        'perf',     // Melhorias de desempenho
+        'test',     // Adicionar ou corrigir testes
+        'chore',    // Alterações de manutenção, como atualizações de dependências
+        'revert'    // Reversão de um commit anterior
+      ]
+    ],
+    'header-min-length': [2, 'always', 5]
+  }
+};
+```
+
+**Exemplos de Commits**
+
+- `feat: adiciona funcionalidade de recuperação de senha`
+- `fix: corrige bug na validação de e-mail`
+- `docs: atualiza o README com informações sobre instalação`
+- `style: corrige espaçamento nas funções`
+- `refactor: melhora a lógica de autenticação`
+- `perf: otimiza a consulta ao banco de dados`
+- `test: adiciona testes unitários para a função de login`
+- `chore: atualiza dependências do projeto`
+- `revert: reverte commit de correção de bug`
+
+**Contato**
+
+Leonardo Cardoso - [@leoCardosoDev](https://github.com/leoCardosoDev) - leocardosodev@gmail.com
+
+Link do Projeto: [https://github.com/leoCardosoDev/node_signup_login_mongo_db](https://github.com/leoCardosoDev/node_signup_login_mongo_db)
+
+---
