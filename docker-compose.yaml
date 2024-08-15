@@ -1,0 +1,27 @@
+services:
+  mongo:
+    container_name: mongo-signup-login
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+
+  api:
+    container_name: api-signup-login
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /usr/src/signup-login
+    restart: always
+    environment:
+      - HUSKY_SKIP_INSTALL=1
+      - MONGO_URL=mongodb://mongo:27017/signup-login
+    volumes:
+      - ./dist/:/usr/src/signup-login/dist/
+    ports:
+      - "5050:5050"
+      - "9222:9222"
+    links:
+      - mongo
