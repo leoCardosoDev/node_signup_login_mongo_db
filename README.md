@@ -1,5 +1,3 @@
----
-
 # Signup Login Application
 
 **Sobre o Projeto**
@@ -200,5 +198,3 @@ module.exports = {
 Leonardo Cardoso - [@leoCardosoDev](https://github.com/leoCardosoDev) - leocardosodev@gmail.com
 
 Link do Projeto: [https://github.com/leoCardosoDev/node_signup_login_mongo_db](https://github.com/leoCardosoDev/node_signup_login_mongo_db)
-
----
